@@ -1,7 +1,9 @@
 package hibernate.controller;
 
-import hibernate.service.AccountService;
-import hibernate.service.UserService;
+//import hibernate.service.AccountService;
+import hibernate.service.AccountServiceImpl;
+//import hibernate.service.UserService;
+import hibernate.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,11 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserBankController {
 
-    private AccountService accountService;
-    private UserService userService;
+    private AccountServiceImpl accountService;
+    private UserServiceImpl userService;
 
     @Autowired
-    public void setService(AccountService accountService, UserService userService) {
+    public void setService(AccountServiceImpl accountService, UserServiceImpl userService) {
         this.accountService = accountService;
         this.userService = userService;
     }

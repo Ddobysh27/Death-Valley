@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl {//implements UserDAO {
 
     private SessionFactory sessionFactory;
 
@@ -19,14 +19,7 @@ public class UserDAOImpl implements UserDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    @Override
-    public List<User> getAllUsers(){
-        Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from User ").list();
-    }
-
     @Transactional
-    @Override
     public User getUserById(int id){
         Session session =sessionFactory.getCurrentSession();
         return session.get(User.class, id);

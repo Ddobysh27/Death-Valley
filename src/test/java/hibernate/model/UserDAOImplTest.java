@@ -2,7 +2,7 @@ package hibernate.model;
 
 import hibernate.config.HibernateConfig;
 import hibernate.config.WebConfig;
-import hibernate.dao.AccountDAOImpl;
+import hibernate.dao.UserDAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
@@ -12,32 +12,25 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.math.BigDecimal;
-
+import static org.testng.Assert.*;
 
 @ComponentScan(basePackages = "hibernate")
 @ContextConfiguration(classes = {WebConfig.class, HibernateConfig.class})
 @WebAppConfiguration
 @PropertySource("classpath:db.properties")
 @PropertySource(value = "classpath:hibernate.properties")
-public class AccountTest extends AbstractTestNGSpringContextTests {
-
-//    @Autowired
-//    DaoPlanet daoPlanet;
-
+public class UserDAOImplTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    private AccountDAOImpl accountDAO;
+    private UserDAOImpl userDAO;
 
     @Test
-    public void testGetIdAccount() {
-        BigDecimal decimal = new BigDecimal(11966);
-        Assert.assertEquals(decimal, accountDAO.getAccountsSum());
-    }
-
-    @Test
-    public void testGetUserIdWithBiggestAccount(){
-        Assert.assertEquals(9, accountDAO.getUserIdWithBiggestAccount());
+    public void testGetUserById()  {
+        User user = new User();
+        user.setId(1);
+        user.setName("John");
+        user.setSurname("Snow");
+        Assert.assertEquals(user, userDAO.getUserById(1));
 
     }
 }

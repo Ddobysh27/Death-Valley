@@ -1,5 +1,6 @@
 package hibernate.config;
 
+
 import hibernate.dao.DaoPlanet;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,10 +25,8 @@ public class WebConfig {
         return viewResolver;
     }
 
-
     @Bean
     public DaoPlanet getDao(){
         return new DaoPlanet();
     }
-
 }
