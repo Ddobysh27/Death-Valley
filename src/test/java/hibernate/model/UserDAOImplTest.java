@@ -31,6 +31,6 @@ public class UserDAOImplTest extends AbstractTestNGSpringContextTests {
         user.setName("John");
         user.setSurname("Snow");
         Assert.assertEquals(user, userDAO.getUserById(1));
-
+                // Comment
     }
 }
